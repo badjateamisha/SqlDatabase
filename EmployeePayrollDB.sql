@@ -5,3 +5,6 @@ INSERT into employee_payroll values ('Amisha',100,'2022-01-03'),('Aarvik',200,'2
 select * from employee_payroll
 SELECT Salary FROM employee_payroll WHERE Name = 'Amisha'
 SELECT * from employee_payroll WHERE Start_Date BETWEEN CAST('2022-01-02' AS DATE) AND GETDATE()
+Alter table employee_payroll add Gender varchar(10)
+UPDATE employee_payroll set Gender ='F' where name = 'Amisha' or name ='Disha';
+UPDATE employee_payroll set Gender ='M' where Name='Aarvik';
