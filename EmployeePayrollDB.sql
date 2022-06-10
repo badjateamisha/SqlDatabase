@@ -29,3 +29,18 @@ alter table employee_payroll add phonenumber varchar(50),address varchar(200) no
 update employee_payroll set phonenumber='9182736450', department='Sales' where name='Disha';
 update employee_payroll set phonenumber='9078563412', department='Marketing' where name='Aarvik';
 update employee_payroll set phonenumber='9876543210', department='Sales' where name='Amisha';
+
+alter table employee_payroll add BasicPay decimal, Deductions decimal, TaxablePay decimal, IncomeTax decimal, NetPay decimal;
+
+update employee_payroll set BasicPay=Salary;
+alter table employee_payroll drop column Salary;
+
+update employee_payroll set Deductions=10 where department = 'sales';
+update employee_payroll set Deductions=20 where department = 'Marketing';
+
+update employee_payroll set IncomeTax=50;
+update employee_payroll set TaxablePay=50;
+
+update employee_payroll set NetPay = (BasicPay-Deductions);
+
+select * from employee_payroll;
